@@ -13,6 +13,10 @@ module Enumerable
     end
     false
   end
+  def my_count
+    return self.size unless block_given?
+    
+  end
 end
 
 # You will first have to define my_each
