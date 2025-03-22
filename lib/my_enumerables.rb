@@ -7,6 +7,12 @@ module Enumerable
     end
     true
   end
+  def my_any?
+    self.my_each do |element|
+      return true unless yield(element) == false
+    end
+    false
+  end
 end
 
 # You will first have to define my_each
@@ -23,5 +29,6 @@ class Array
   end
 end
 
-a = [1, 1, 2, 3, 5, 8, 13, 21, 34]
-p a.my_all? { |n| n < 5}
+a = [1,2,3,4,5]
+
+p a.my_any? {|num| num < 3}
