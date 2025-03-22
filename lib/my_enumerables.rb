@@ -9,7 +9,7 @@ module Enumerable
   end
   def my_any?
     self.my_each do |element|
-      return true unless yield(element) == false
+    return true unless yield(element) == false
     end
     false
   end
@@ -20,6 +20,11 @@ module Enumerable
       count += 1 if yield(element)
     end
     return count
+  end
+  def my_each_with_index
+    self.each do |element|
+      return self unless block_given?
+    end
   end
 end
 
@@ -39,4 +44,4 @@ end
 
 a = [1,2,3,4,5]
 
-p a.my_count {|num| num < 5}
+p a.each_with_index
