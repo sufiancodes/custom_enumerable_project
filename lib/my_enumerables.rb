@@ -29,8 +29,14 @@ module Enumerable
       index += 1
     end
   end
+  def my_inject(initial_value = 0)
+    accumulator = initial_value
+    self.my_each do |element|
+      accumulator = yield(accumulator,element)
+    end
+    accumulator
+  end
 end
-
 # You will first have to define my_each
 # on the Array class. Methods defined in
 # your enumerable module will have access
@@ -45,6 +51,6 @@ class Array
   end
 end
 
-a = [1,2,3,4,5]
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34]
 
-p a.my_each_with_index { |element, index| puts "here is element #{element} and here is index #{index}"}
+p a.my_inject(2) {|element, value| element+value }
