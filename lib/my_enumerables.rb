@@ -22,8 +22,11 @@ module Enumerable
     return count
   end
   def my_each_with_index
+    return self unless block_given?
+    index = 0
     self.each do |element|
-      return self unless block_given?
+      yield(element,index)
+      index += 1
     end
   end
 end
@@ -44,4 +47,4 @@ end
 
 a = [1,2,3,4,5]
 
-p a.each_with_index
+p a.my_each_with_index { |element, index| puts "here is element #{element} and here is index #{index}"}

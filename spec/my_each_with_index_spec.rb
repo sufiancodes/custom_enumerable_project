@@ -16,7 +16,7 @@ RSpec.describe Enumerable do
         expect(my_each_with_index_results).to eq(enumerable)
       end
 
-      xit 'executes the block for each element and index' do
+      it 'executes the block for each element and index' do
         my_each_with_index_results = []
         each_with_index_results = []
 
