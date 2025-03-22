@@ -15,7 +15,11 @@ module Enumerable
   end
   def my_count
     return self.size unless block_given?
-    
+    count = 0
+    self.my_each do |element|
+      count += 1 if yield(element)
+    end
+    return count
   end
 end
 
@@ -35,4 +39,4 @@ end
 
 a = [1,2,3,4,5]
 
-p a.my_any? {|num| num < 3}
+p a.my_count {|num| num < 5}
