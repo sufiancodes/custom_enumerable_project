@@ -1,13 +1,11 @@
 module Enumerable
   # Your code goes here
-  def my_all
+  def my_all?
     self.my_each do |element|
-      if element == yield(element)
-        return true
-      else
-        return false
-      end
+      return true unless block_given?
+      return false unless yield(element) == true
     end
+    true
   end
 end
 
@@ -25,5 +23,5 @@ class Array
   end
 end
 
-a = [2,2,2,2,2]
-p a.my_all { |n| n < 2}
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34]
+p a.my_all? { |n| n < 5}
