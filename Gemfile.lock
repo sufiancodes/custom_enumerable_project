@@ -15,12 +15,16 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
+    sorbet (0.5.11953)
+      sorbet-static (= 0.5.11953)
+    sorbet-static (0.5.11953-x86_64-linux)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
   rspec (~> 3.10)
+  sorbet (~> 0.5.11953)
 
 BUNDLED WITH
    2.3.14

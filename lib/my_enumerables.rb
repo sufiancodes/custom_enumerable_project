@@ -36,6 +36,13 @@ module Enumerable
     end
     accumulator
   end
+  def my_map
+    result = []
+    self.my_each do |element|
+      result.push(yield element)
+    end
+    result
+  end
 end
 # You will first have to define my_each
 # on the Array class. Methods defined in
@@ -50,7 +57,3 @@ class Array
     self
   end
 end
-
-a = [1, 1, 2, 3, 5, 8, 13, 21, 34]
-
-p a.my_inject(2) {|element, value| element+value }
