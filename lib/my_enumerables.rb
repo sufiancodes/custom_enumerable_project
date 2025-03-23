@@ -8,7 +8,7 @@ module Enumerable
     true
   end
   def my_none?
-    self.each do |element|
+    self.my_each do |element|
       return false if yield(element) == true
     end
     true
@@ -49,6 +49,13 @@ module Enumerable
     end
     result
   end
+  def my_select
+    result = []
+    self.my_each do |element|
+      result.push(element) if yield(element) == true
+    end
+    result
+  end
 end
 # You will first have to define my_each
 # on the Array class. Methods defined in
@@ -65,5 +72,5 @@ class Array
 end
 
 a = [1,2,3,4,5]
-p a.my_none? {|element| element < 1}
-p a.none? {|element| element < 1}
+p a.my_select {|element| element < 3}
+p a.select {|element| element < 3}
