@@ -70,7 +70,3 @@ class Array
     self
   end
 end
-
-a = [1,2,3,4,5]
-p a.my_select {|element| element < 3}
-p a.select {|element| element < 3}
