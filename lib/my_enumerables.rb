@@ -7,6 +7,12 @@ module Enumerable
     end
     true
   end
+  def my_none?
+    self.each do |element|
+      return false if yield(element) == true
+    end
+    true
+  end
   def my_any?
     self.my_each do |element|
     return true unless yield(element) == false
@@ -57,3 +63,7 @@ class Array
     self
   end
 end
+
+a = [1,2,3,4,5]
+p a.my_none? {|element| element < 1}
+p a.none? {|element| element < 1}
